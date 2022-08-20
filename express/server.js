@@ -54,6 +54,6 @@ app.use("*", (req, res, next) => {
   res.redirect("/404.html");
 });
 
-app.listen(utils.SERVER_PORT, () => {
+app.listen(process.env.PORT || utils.SERVER_PORT, () => {
   console.log("SERVER IS UP AT PORT:", utils.SERVER_PORT);
 });
