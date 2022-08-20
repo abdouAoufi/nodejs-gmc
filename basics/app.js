@@ -1,15 +1,20 @@
-const fs = require("fs");
+const fs = require("fs/promises");
 
 const createTextFile = () => {
-  // fs.writeFileSync("file.txt", "we love node js", "utf-8");
+  // fs.writeFileSync("file.txt", "we love node js", "utf-8"); // block process
   fs.writeFile(
     "data.json",
     `{ "name" : "islem" }`,
     "utf-8",
     function (err, data) {
+      if (err) {
+      }
       console.log("file created");
     }
   );
+  fs.writeFile("file2.txt", "content", "utf-8").then(() => {
+    console.log("file created");
+  });
 };
 
 const readTextFile = (path) => {
@@ -19,7 +24,7 @@ const readTextFile = (path) => {
       return console.log("this file does not exist");
     }
     const result = JSON.parse(data);
-				console.log(result.name);
+    console.log(result.name);
   });
   // console.log(resultSync)
   console.log("reading finished!");

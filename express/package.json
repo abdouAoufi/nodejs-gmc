@@ -1,0 +1,27 @@
+{
+  "name": "express-started",
+  "version": "1.0.0",
+  "description": "this is for education purposes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdouAoufi/nodejs-gmc.git"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "js"
+  ],
+  "author": "Aoufi Abderahmane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdouAoufi/nodejs-gmc/issues"
+  },
+  "homepage": "https://github.com/abdouAoufi/nodejs-gmc#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
