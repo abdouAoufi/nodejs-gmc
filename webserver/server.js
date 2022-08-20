@@ -4,8 +4,9 @@ const fs = require("fs");
 http
     .createServer(function(request, response) {
         fs.readFile("./index.html", "utf-8", (err, data) => {
+            
             if (err) {
-                return response.end("<h1>file not found please try agin later</h1>");
+                return response.end("<h1> 404 file not found please try agin later</h1>");
             }
             response.end(data);
         });
