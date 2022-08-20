@@ -28,22 +28,28 @@ addButton.addEventListener("click", () => {
         console.log(err);
       });
   }
+
+  noteInput.value = "";
 });
 
-fetch("http://localhost:3000/notes", {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-  },
-}).then((res) =>
-  res.json().then((data) => {
-    listNote = data.notes;
-    const html = data.notes
-      .map((note, index) => `<li> ${index + 1} ${note}</li>`)
-      .join("");
-    listNotes.innerHTML = html;
-  })
-);
+function getNotes() {
+  fetch("http://localhost:3000/notes", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((res) =>
+    res.json().then((data) => {
+      listNote = data.notes;
+      const html = data.notes
+        .map((note, index) => `<li> ${index + 1} ${note}</li>`)
+        .join("");
+      listNotes.innerHTML = html;
+    })
+  );
+}
+
+getNotes();
 
 removeButton.addEventListener("click", () => {
   fetch("http://localhost:3000/remove-notes", {
@@ -51,5 +57,5 @@ removeButton.addEventListener("click", () => {
     headers: {
       "Content-Type": "application/json",
     },
-  }).then((res) => res.json().then((data) => console.log(data)));
+  }).then((res) => res.json().then((data) => getNotes()));
 });
